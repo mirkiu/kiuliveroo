@@ -1,1 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiuliveroo取件碼通關測試</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kiuliveroo取件碼通關測試</h1>
+        <p id="question" style="display: none;">成年人有幾多顆牙齒？請在 3 秒內輸入你的答案：</p>
+        <input type="number" id="answer" placeholder="輸入數字" style="display: none;" autofocus>
+        <div class="message" id="message"></div>
+    </div>
 
+    <script>
+        const correctAnswer = 32; // 正確答案
+        const messageElement = document.getElementById('message');
+        const answerInput = document.getElementById('answer');
+        const questionElement = document.getElementById('question');
+
+        // 3秒後顯示問題和輸入框
+        setTimeout(() => {
+            questionElement.style.display = 'block';
+            answerInput.style.display = 'block';
+            answerInput.focus(); // 自動聚焦在輸入框
+        }, 3000);
+
+        // 設置在問題顯示後的3秒隱藏問題和輸入框，並檢查答案
+        setTimeout(() => {
+            checkAnswer();
+        }, 6000); // 6秒後檢查答案
+
+        // 檢查用戶的答案
+        function checkAnswer() {
+            const userAnswer = parseInt(answerInput.value, 10); // 獲取用戶輸入的答案
+            questionElement.style.display = 'none';
+            answerInput.style.display = 'none';
+
+            // 根據用戶的答案顯示相應消息
+            if (userAnswer === correctAnswer) {
+                messageElement.textContent = "請向小翹快遞員讀出取件碼：噗嚕嚕嚕嚕";
+            } else {
+                messageElement.textContent = "時間到，遊戲結束！";
+            }
+
+            // 1秒後自動關閉頁面
+            setTimeout(() => {
+                window.close(); // 嘗試關閉頁面
+            }, 1000); // 等待1秒關閉頁面
+        }
+
+        // 監聽輸入框的變化
+        answerInput.addEventListener('input', () => {
+            const userAnswer = parseInt(answerInput.value, 10);
+            if (userAnswer === correctAnswer) {
+                clearTimeout(timer); // 清除計時器
+                questionElement.style.display = 'none';
+                answerInput.style.display = 'none';
+                messageElement.textContent = "請向小翹快遞員讀出取件碼：噗嚕嚕嚕嚕";
+
+                // 1秒後自動關閉頁面
+                setTimeout(() => {
+                    window.close(); // 嘗試關閉頁面
+                }, 1000); // 等待1秒關閉頁面
+            }
+        });
+
+    </script>
+</body>
+</html>
