@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KiuLiveroo取件碼測試</title>
+    <title>Kiuliveroo取件碼通關遊戲現正開始!</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -35,7 +35,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>KiuLiveroo取件碼測試</h1>
+        <h1>Kiuliveroo取件碼通關遊戲現正開始!</h1>
         <p id="question" style="display: none;">成年人有幾多顆牙齒？請在 3 秒內輸入你的答案：</p>
         <input type="number" id="answer" placeholder="輸入數字" style="display: none;" autofocus>
         <div class="message" id="message"></div>
@@ -47,24 +47,25 @@
         const answerInput = document.getElementById('answer');
         const questionElement = document.getElementById('question');
 
-        // 3秒後顯示問題和輸入框
+       // 3秒後顯示問題和輸入框
         setTimeout(() => {
             questionElement.style.display = 'block';
             answerInput.style.display = 'block';
             answerInput.focus(); // 自動聚焦在輸入框
         }, 3000);
 
-        // 設置在3秒內檢查用戶答案
-        const timer = setTimeout(() => {
+        // 設置在問題顯示後的3秒隱藏問題和輸入框，並檢查答案
+        setTimeout(() => {
             checkAnswer();
         }, 6000); // 6秒後檢查答案
 
         // 檢查用戶的答案
         function checkAnswer() {
-            const userAnswer = parseInt(answerInput.value, 10);
+            const userAnswer = parseInt(answerInput.value, 10); // 獲取用戶輸入的答案
             questionElement.style.display = 'none';
             answerInput.style.display = 'none';
 
+            // 根據用戶的答案顯示相應消息
             if (userAnswer === correctAnswer) {
                 messageElement.textContent = "回答正確！取件碼是：噗嚕嚕嚕嚕";
             } else {
@@ -92,6 +93,7 @@
                 }, 1000); // 等待1秒關閉頁面
             }
         });
+
     </script>
 </body>
 </html>
