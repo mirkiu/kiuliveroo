@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kiuliveroo取件碼通關遊戲現正開始!</title>
+    <title>Kiuliveroo取件碼通關測試現正開始!</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -35,7 +35,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Kiuliveroo取件碼通關遊戲現正開始!</h1>
+        <h1>Kiuliveroo取件碼通關測試</h1>
         <p id="question" style="display: none;">成年人有幾多顆牙齒？請在 3 秒內輸入你的答案：</p>
         <input type="number" id="answer" placeholder="輸入數字" style="display: none;" autofocus>
         <div class="message" id="message"></div>
@@ -67,7 +67,7 @@
 
             // 根據用戶的答案顯示相應消息
             if (userAnswer === correctAnswer) {
-                messageElement.textContent = "回答正確！取件碼是：噗嚕嚕嚕嚕";
+                messageElement.textContent = "回答正確！請向小翹快遞員讀出取件碼：噗嚕嚕嚕嚕";
             } else {
                 messageElement.textContent = "時間到，遊戲結束！";
             }
