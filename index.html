@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kiuliveroo取件碼通關測試現正開始!</title>
+    <title>Kiuliveroo取件碼通關測試</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -42,12 +42,12 @@
     </div>
 
     <script>
-        const correctAnswer = 32;
+        const correctAnswer = 32; // 正確答案
         const messageElement = document.getElementById('message');
         const answerInput = document.getElementById('answer');
         const questionElement = document.getElementById('question');
 
-       // 3秒後顯示問題和輸入框
+        // 3秒後顯示問題和輸入框
         setTimeout(() => {
             questionElement.style.display = 'block';
             answerInput.style.display = 'block';
@@ -67,14 +67,14 @@
 
             // 根據用戶的答案顯示相應消息
             if (userAnswer === correctAnswer) {
-                messageElement.textContent = "回答正確！請向小翹快遞員讀出取件碼：噗嚕嚕嚕嚕";
+                messageElement.textContent = "請向小翹快遞員讀出取件碼：噗嚕嚕嚕嚕";
             } else {
                 messageElement.textContent = "時間到，遊戲結束！";
             }
 
-            // 過1秒後自動關閉頁面
+            // 1秒後自動關閉頁面
             setTimeout(() => {
-                window.close(); // 關閉頁面
+                window.close(); // 嘗試關閉頁面
             }, 1000); // 等待1秒關閉頁面
         }
 
@@ -87,9 +87,9 @@
                 answerInput.style.display = 'none';
                 messageElement.textContent = "請向小翹快遞員讀出取件碼：噗嚕嚕嚕嚕";
 
-                // 過1秒後自動關閉頁面
+                // 1秒後自動關閉頁面
                 setTimeout(() => {
-                    window.close(); // 關閉頁面
+                    window.close(); // 嘗試關閉頁面
                 }, 1000); // 等待1秒關閉頁面
             }
         });
